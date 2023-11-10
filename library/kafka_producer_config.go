@@ -1,6 +1,6 @@
 package library
 
-import "github.com/Shopify/sarama"
+import "github.com/IBM/sarama"
 
 type KafkaProducerConfig struct {
 	Receiver      **KafkaSyncProducer //实例接受对象

@@ -1,12 +1,12 @@
 package gin_plugin
 
 import (
+	"base/contract"
 	"bytes"
 	"encoding/json"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/cast"
 	"io/ioutil"
-	"talkcheap.xiaoeknow.com/xiaoetong/eframe/contract"
 	"time"
 )
 

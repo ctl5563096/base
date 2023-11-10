@@ -12,10 +12,10 @@ import (
 	"strconv"
 	"time"
 
+	"base/contract"
+	"base/helpers/network"
 	"github.com/SkyAPM/go2sky"
 	agentv3 "skywalking.apache.org/repo/goapi/collect/language/agent/v3"
-	"talkcheap.xiaoeknow.com/xiaoetong/eframe/contract"
-	"talkcheap.xiaoeknow.com/xiaoetong/eframe/helpers/network"
 )
 
 type HttpClient struct {
@@ -89,8 +89,8 @@ func (c *HttpClient) Get(ctx context.Context, url string, header map[string]stri
 	if clientResp.StatusCode < 200 || clientResp.StatusCode >= 300 {
 		resBody, _ := getBytesFromHttpResponse(clientResp)
 		err = &contract.HttpResponseError{
-			Code: clientResp.StatusCode,
-			Msg:  fmt.Sprintf("response error, code %d", clientResp.StatusCode),
+			Code:         clientResp.StatusCode,
+			Msg:          fmt.Sprintf("response error, code %d", clientResp.StatusCode),
 			ResponseBody: resBody,
 		}
 		return nil, err
@@ -102,7 +102,7 @@ func (c *HttpClient) Get(ctx context.Context, url string, header map[string]stri
 }
 
 func (c *HttpClient) GetV2(ctx context.Context, url string, query map[string]string, header map[string]string, logger contract.XiaoeRequestLoggerInterface) (response []byte, err error) {
-	req, err := http.NewRequestWithContext(ctx,"GET", url, nil)
+	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	var clientResp *http.Response
 	var paramsString string
 	var beginTime = time.Now()
@@ -138,8 +138,8 @@ func (c *HttpClient) GetV2(ctx context.Context, url string, query map[string]str
 	if clientResp.StatusCode < 200 || clientResp.StatusCode >= 300 {
 		resBody, _ := getBytesFromHttpResponse(clientResp)
 		err = &contract.HttpResponseError{
-			Code: clientResp.StatusCode,
-			Msg:  fmt.Sprintf("response error, code %d", clientResp.StatusCode),
+			Code:         clientResp.StatusCode,
+			Msg:          fmt.Sprintf("response error, code %d", clientResp.StatusCode),
 			ResponseBody: resBody,
 		}
 		return nil, err
@@ -159,7 +159,7 @@ func (c *HttpClient) Post(ctx context.Context, url string, params []byte, header
 		body = bytes.NewReader(params)
 		paramsString = string(params)
 	}
-	req, e := http.NewRequestWithContext(ctx,"POST", url, body)
+	req, e := http.NewRequestWithContext(ctx, "POST", url, body)
 	defer recordLog(req, &clientResp, &paramsString, &response, &err, beginTime, logger)
 	if e != nil {
 		err = e
@@ -185,8 +185,8 @@ func (c *HttpClient) Post(ctx context.Context, url string, params []byte, header
 	if clientResp.StatusCode < 200 || clientResp.StatusCode >= 300 {
 		resBody, _ := getBytesFromHttpResponse(clientResp)
 		err = &contract.HttpResponseError{
-			Code: clientResp.StatusCode,
-			Msg:  fmt.Sprintf("response error, code %d", clientResp.StatusCode),
+			Code:         clientResp.StatusCode,
+			Msg:          fmt.Sprintf("response error, code %d", clientResp.StatusCode),
 			ResponseBody: resBody,
 		}
 		return nil, err
@@ -197,7 +197,7 @@ func (c *HttpClient) Post(ctx context.Context, url string, params []byte, header
 	return response, err
 }
 func (c *HttpClient) GetJsonWithHeader(ctx context.Context, url string, header map[string]string, response interface{}, logger contract.XiaoeRequestLoggerInterface) error {
-	req, err := http.NewRequestWithContext(ctx,"GET", url, nil)
+	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	var responseBytes []byte
 	var clientResp *http.Response
 	var params string
@@ -271,7 +271,7 @@ func (c *HttpClient) PostJsonWithHeader(ctx context.Context, url string, params 
 		}
 
 	}
-	req, e := http.NewRequestWithContext(ctx,"POST", url, body)
+	req, e := http.NewRequestWithContext(ctx, "POST", url, body)
 	defer recordLog(req, &clientResp, &paramsString, &responseBytes, &err, beginTime, logger)
 	if e != nil {
 		err = e

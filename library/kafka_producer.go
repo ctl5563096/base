@@ -2,7 +2,7 @@ package library
 
 import (
 	"fmt"
-	"github.com/Shopify/sarama"
+	"github.com/IBM/sarama"
 	"log"
 	"os"
 )

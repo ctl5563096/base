@@ -1,6 +1,7 @@
 package library
 
 import (
+	"base/contract"
 	"context"
 	"fmt"
 	rotateLog "github.com/lestrrat-go/file-rotatelogs"
@@ -9,7 +10,6 @@ import (
 	"io"
 	"os"
 	"strings"
-	"talkcheap.xiaoeknow.com/xiaoetong/eframe/contract"
 	"time"
 )
 

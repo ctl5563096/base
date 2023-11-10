@@ -7,9 +7,9 @@ import (
 	"strings"
 	"time"
 
+	"base/contract"
 	"github.com/SkyAPM/go2sky"
 	agentv3 "skywalking.apache.org/repo/goapi/collect/language/agent/v3"
-	"talkcheap.xiaoeknow.com/xiaoetong/eframe/contract"
 )
 
 // skyWalking接入hook

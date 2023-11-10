@@ -1,10 +1,10 @@
 package gin_plugin
 
 import (
+	"base/contract"
+	"base/helpers/str"
 	"context"
 	"github.com/gin-gonic/gin"
-	"talkcheap.xiaoeknow.com/xiaoetong/eframe/contract"
-	"talkcheap.xiaoeknow.com/xiaoetong/eframe/helpers/str"
 )
 
 func XeSpecificContextSet(ginCtx *gin.Context) {

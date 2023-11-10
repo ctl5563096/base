@@ -1,9 +1,9 @@
 package library
 
 import (
+	"base/contract"
 	"context"
 	"net"
-	"talkcheap.xiaoeknow.com/xiaoetong/eframe/contract"
 	"time"
 
 	"go.uber.org/zap"

@@ -1,6 +1,6 @@
 package library
 
-import "github.com/Shopify/sarama"
+import "github.com/IBM/sarama"
 
 type KafkaGroupConsumerConfig struct {
 	Receiver      **KafkaGroupConsumer //实例接受对象
