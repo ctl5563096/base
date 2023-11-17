@@ -1,4 +1,4 @@
-module base
+module github.com/ctl5563096/base
 
 go 1.18
 
