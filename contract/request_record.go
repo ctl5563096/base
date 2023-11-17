@@ -1,6 +1,7 @@
 package contract
 
 type HttpRequestRecord struct {
+	Ctx            string `json:"ctx"`
 	TraceId        string `json:"trace_id"`        //请求唯一id
 	Sw8            string `json:"sw8"`             //SkyWalking链路标示 对应header sw8
 	Sw8Correlation string `json:"sw8_correlation"` //SkyWalking链路标示 对应header sw8-correlation

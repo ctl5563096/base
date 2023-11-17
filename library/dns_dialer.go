@@ -57,7 +57,7 @@ func (d *Dialer) DialContext(ctx context.Context, network, address string) (net.
 
 // 获取全局追踪id
 func getTraceId(ctx context.Context) string {
-	values, ok := ctx.Value(contract.XeCtx).(map[string]string)
+	values, ok := ctx.Value(contract.Ctx).(map[string]string)
 	if ok { // 全局唯一标识
 		return values[contract.TraceId]
 	}

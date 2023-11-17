@@ -7,6 +7,7 @@ import (
 	rotateLog "github.com/lestrrat-go/file-rotatelogs"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
+	"gopkg.in/natefinch/lumberjack.v2"
 	"io"
 	"os"
 	"strings"
@@ -17,12 +18,10 @@ type Log struct {
 	*zap.Logger
 }
 
-func (log *Log) HttpRequestLog(record *contract.XiaoeHttpRequestRecord) {
+func (log *Log) HttpRequestLog(record *contract.HttpRequestRecord) {
 	log.Info(record.Msg,
-		zap.String("app_id", record.AppId),
 		zap.String("sw8", record.Sw8),
 		zap.String("sw8_correlation", record.Sw8Correlation),
-		zap.String("xe_tag", record.XeTag),
 		zap.String("trace_id", record.TraceId),
 		zap.String("uid", record.Uid),
 		zap.Int("http_status", record.HttpStatus),
@@ -56,8 +55,8 @@ func GetLogger(i interface{}) *Log {
 
 func (log *Log) getCtxInfo(ctx context.Context) []zap.Field {
 	filed := make([]zap.Field, 0)
-	if xeCtx, ok := ctx.Value(contract.XeCtx).(map[string]string); ok {
-		filed = append(filed, zap.String("trace_id", xeCtx[contract.TraceId]))
+	if Ctx, ok := ctx.Value(contract.Ctx).(map[string]string); ok {
+		filed = append(filed, zap.String("trace_id", Ctx[contract.TraceId]))
 	}
 	return filed
 }

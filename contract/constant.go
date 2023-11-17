@@ -12,3 +12,5 @@ const ComponentIDGINHttpServer = 5006
 const ComponentIDGOHttpClient = 5005
 const ComponentIDGoRedis = 5013
 const ComponentIDGoGorm = 5014
+
+const Ctx = "ctx"

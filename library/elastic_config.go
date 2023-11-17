@@ -2,6 +2,7 @@ package library
 
 import (
 	es6 "github.com/olivere/elastic/v6"
+	"github.com/olivere/elastic/v7"
 )
 
 type ElasticV7Config struct {

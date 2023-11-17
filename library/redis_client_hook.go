@@ -9,6 +9,7 @@ import (
 
 	"github.com/SkyAPM/go2sky"
 	"github.com/ctl5563096/base/contract"
+	"github.com/go-redis/redis/v8"
 	agentv3 "skywalking.apache.org/repo/goapi/collect/language/agent/v3"
 )
 
