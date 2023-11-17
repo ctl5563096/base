@@ -404,11 +404,6 @@ func addJsonHeader(req *http.Request) {
 func addXeHeader(ctx context.Context, req *http.Request) {
 	values, ok := ctx.Value(contract.Ctx).(map[string]string)
 	if ok {
-		//Xe灰度标识
-		if header := values[contract.XeTagHeader]; header != "" {
-			req.Header.Add(contract.XeTagHeader, header)
-		}
-
 		//SkyWalking标识
 		if header := values[contract.Sw8Header]; header != "" {
 			req.Header.Add(contract.Sw8Header, header)
