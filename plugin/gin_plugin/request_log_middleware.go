@@ -22,7 +22,7 @@ func (w bodyLogWriter) Write(b []byte) (int, error) {
 
 // RequestLogMiddleware 用于记录请求日志 传入符合 contract.LoggerInterface 约束的日志对象
 // maxByte	requestBody大于maxByte，请求日志不打印
-func RequestLogMiddleware(logger contract.XiaoeRequestLoggerInterface, maxByte float64) func(ginCtx *gin.Context) {
+func RequestLogMiddleware(logger contract.RequestLoggerInterface, maxByte float64) func(ginCtx *gin.Context) {
 	return func(ginCtx *gin.Context) {
 		record := contract.XiaoeHttpRequestRecord{}
 		begin := time.Now()

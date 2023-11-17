@@ -60,7 +60,7 @@ func NewHttpClientCache(config *HttpClientCacheConfig) (httpClient *HttpClient) 
 	return
 }
 
-func (c *HttpClient) Get(ctx context.Context, url string, header map[string]string, logger contract.XiaoeRequestLoggerInterface) (response []byte, err error) {
+func (c *HttpClient) Get(ctx context.Context, url string, header map[string]string, logger contract.RequestLoggerInterface) (response []byte, err error) {
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	var clientResp *http.Response
 	var paramsString string
@@ -102,7 +102,7 @@ func (c *HttpClient) Get(ctx context.Context, url string, header map[string]stri
 	return response, err
 }
 
-func (c *HttpClient) GetV2(ctx context.Context, url string, query map[string]string, header map[string]string, logger contract.XiaoeRequestLoggerInterface) (response []byte, err error) {
+func (c *HttpClient) GetV2(ctx context.Context, url string, query map[string]string, header map[string]string, logger contract.RequestLoggerInterface) (response []byte, err error) {
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	var clientResp *http.Response
 	var paramsString string
@@ -151,7 +151,7 @@ func (c *HttpClient) GetV2(ctx context.Context, url string, query map[string]str
 	return response, err
 }
 
-func (c *HttpClient) Post(ctx context.Context, url string, params []byte, header map[string]string, logger contract.XiaoeRequestLoggerInterface) (response []byte, err error) {
+func (c *HttpClient) Post(ctx context.Context, url string, params []byte, header map[string]string, logger contract.RequestLoggerInterface) (response []byte, err error) {
 	var clientResp *http.Response
 	var paramsString string
 	var beginTime = time.Now()
@@ -197,7 +197,7 @@ func (c *HttpClient) Post(ctx context.Context, url string, params []byte, header
 
 	return response, err
 }
-func (c *HttpClient) GetJsonWithHeader(ctx context.Context, url string, header map[string]string, response interface{}, logger contract.XiaoeRequestLoggerInterface) error {
+func (c *HttpClient) GetJsonWithHeader(ctx context.Context, url string, header map[string]string, response interface{}, logger contract.RequestLoggerInterface) error {
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	var responseBytes []byte
 	var clientResp *http.Response
@@ -249,11 +249,11 @@ func (c *HttpClient) GetJsonWithHeader(ctx context.Context, url string, header m
 	return err
 }
 
-func (c *HttpClient) GetJson(ctx context.Context, url string, response interface{}, logger contract.XiaoeRequestLoggerInterface) error {
+func (c *HttpClient) GetJson(ctx context.Context, url string, response interface{}, logger contract.RequestLoggerInterface) error {
 	return c.GetJsonWithHeader(ctx, url, nil, response, logger)
 }
 
-func (c *HttpClient) PostJsonWithHeader(ctx context.Context, url string, params interface{}, header map[string]string, response interface{}, logger contract.XiaoeRequestLoggerInterface) error {
+func (c *HttpClient) PostJsonWithHeader(ctx context.Context, url string, params interface{}, header map[string]string, response interface{}, logger contract.RequestLoggerInterface) error {
 	var responseBytes []byte
 	var clientResp *http.Response
 	var paramsString string
@@ -319,7 +319,7 @@ func (c *HttpClient) PostJsonWithHeader(ctx context.Context, url string, params 
 	return err
 }
 
-func (c *HttpClient) PostJson(ctx context.Context, url string, params interface{}, response interface{}, logger contract.XiaoeRequestLoggerInterface) error {
+func (c *HttpClient) PostJson(ctx context.Context, url string, params interface{}, response interface{}, logger contract.RequestLoggerInterface) error {
 	return c.PostJsonWithHeader(ctx, url, params, nil, response, logger)
 }
 
@@ -427,7 +427,7 @@ func addXeHeader(ctx context.Context, req *http.Request) {
 
 }
 
-func recordLog(req *http.Request, resp **http.Response, params *string, response *[]byte, err *error, beginTime time.Time, logger contract.XiaoeRequestLoggerInterface) {
+func recordLog(req *http.Request, resp **http.Response, params *string, response *[]byte, err *error, beginTime time.Time, logger contract.RequestLoggerInterface) {
 	if logger != nil && req != nil {
 		record := contract.XiaoeHttpRequestRecord{}
 		record.Sw8 = req.Header.Get(contract.Sw8Header)

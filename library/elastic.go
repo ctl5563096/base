@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	es6 "github.com/olivere/elastic/v6"
+	"github.com/olivere/elastic/v7"
 	"net/http"
 	"time"
 )
