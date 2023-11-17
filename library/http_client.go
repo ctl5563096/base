@@ -23,7 +23,6 @@ type HttpClient struct {
 }
 
 func NewHttpClient(config *HttpClientConfig) (httpClient *HttpClient) {
-	helpe
 	httpClient = &HttpClient{
 		Client: &http.Client{
 			Timeout: time.Duration(config.RequestTimeoutSecond) * time.Second,
@@ -429,10 +428,9 @@ func addXeHeader(ctx context.Context, req *http.Request) {
 
 func recordLog(req *http.Request, resp **http.Response, params *string, response *[]byte, err *error, beginTime time.Time, logger contract.RequestLoggerInterface) {
 	if logger != nil && req != nil {
-		record := contract.XiaoeHttpRequestRecord{}
+		record := contract.HttpRequestRecord{}
 		record.Sw8 = req.Header.Get(contract.Sw8Header)
 		record.Sw8Correlation = req.Header.Get(contract.Sw8CorrelationHeader)
-		record.XeTag = req.Header.Get(contract.XeTagHeader)
 		record.TraceId = req.Header.Get(contract.TraceId)
 		record.TargetUrl = req.URL.String()
 		record.Method = req.Method
