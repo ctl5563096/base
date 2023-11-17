@@ -1,8 +1,8 @@
 package library
 
 import (
-	"base/contract"
 	"context"
+	"github.com/ctl5563096/base/contract"
 	"net"
 	"time"
 

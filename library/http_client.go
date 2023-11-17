@@ -1,20 +1,20 @@
 package library
 
 import (
-	"base/contract"
 	"bytes"
 	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/ctl5563096/base/contract"
 	"io"
 	"net"
 	"net/http"
 	"strconv"
 	"time"
 
-	"base/helpers/network"
 	"github.com/SkyAPM/go2sky"
+	"github.com/ctl5563096/base/helpers/network"
 	agentv3 "skywalking.apache.org/repo/goapi/collect/language/agent/v3"
 )
 

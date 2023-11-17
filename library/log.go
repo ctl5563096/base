@@ -1,9 +1,9 @@
 package library
 
 import (
-	"base/contract"
 	"context"
 	"fmt"
+	"github.com/ctl5563096/base/contract"
 	rotateLog "github.com/lestrrat-go/file-rotatelogs"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"

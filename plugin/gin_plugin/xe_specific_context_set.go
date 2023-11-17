@@ -1,9 +1,9 @@
 package gin_plugin
 
 import (
-	"base/contract"
-	"base/helpers/str"
 	"context"
+	"github.com/ctl5563096/base/contract"
+	"github.com/ctl5563096/base/helpers/str"
 	"github.com/gin-gonic/gin"
 )
 

@@ -1,9 +1,9 @@
 package gin_plugin
 
 import (
-	"base/contract"
 	"bytes"
 	"encoding/json"
+	"github.com/ctl5563096/base/contract"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/cast"
 	"io/ioutil"

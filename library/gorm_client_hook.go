@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"base/contract"
 	"github.com/SkyAPM/go2sky"
+	"github.com/ctl5563096/base/contract"
 	"gorm.io/gorm"
 	agentv3 "skywalking.apache.org/repo/goapi/collect/language/agent/v3"
 )

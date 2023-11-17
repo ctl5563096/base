@@ -1,18 +1,18 @@
 package gin_plugin
 
 import (
-    "net"
-    "net/http"
-    "net/http/httputil"
-    "os"
-    "runtime/debug"
-    "strings"
+	"net"
+	"net/http"
+	"net/http/httputil"
+	"os"
+	"runtime/debug"
+	"strings"
 
-    "base/contract"
-    "base/library"
-    "go.uber.org/zap"
+	"github.com/ctl5563096/base/contract"
+	"github.com/ctl5563096/base/library"
+	"go.uber.org/zap"
 
-    "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
 )
 
 // PanicRecovery recover掉项目可能出现的panic，并使用zap记录相关日志

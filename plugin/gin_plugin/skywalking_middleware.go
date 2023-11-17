@@ -5,9 +5,9 @@ import (
 	"strconv"
 	"time"
 
-	"base/contract"
-	"base/library"
 	"github.com/SkyAPM/go2sky"
+	"github.com/ctl5563096/base/contract"
+	"github.com/ctl5563096/base/library"
 	"github.com/gin-gonic/gin"
 	agentv3 "skywalking.apache.org/repo/goapi/collect/language/agent/v3"
 )

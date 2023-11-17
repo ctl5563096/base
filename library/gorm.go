@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"base/contract"
+	"github.com/ctl5563096/base/contract"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/plugin/dbresolver"
