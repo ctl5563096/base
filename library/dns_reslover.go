@@ -1,11 +1,11 @@
 package library
 
 import (
-    "base/contract"
-    "context"
-    "go.uber.org/zap"
-    "net"
-    "time"
+	"context"
+	"github.com/ctl5563096/base/contract"
+	"go.uber.org/zap"
+	"net"
+	"time"
 )
 
 type DnsResolverInterface interface {

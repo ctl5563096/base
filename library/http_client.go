@@ -1,6 +1,7 @@
 package library
 
 import (
+	"base/contract"
 	"bytes"
 	"context"
 	"encoding/json"
@@ -12,7 +13,6 @@ import (
 	"strconv"
 	"time"
 
-	"base/contract"
 	"base/helpers/network"
 	"github.com/SkyAPM/go2sky"
 	agentv3 "skywalking.apache.org/repo/goapi/collect/language/agent/v3"
@@ -23,6 +23,7 @@ type HttpClient struct {
 }
 
 func NewHttpClient(config *HttpClientConfig) (httpClient *HttpClient) {
+	helpe
 	httpClient = &HttpClient{
 		Client: &http.Client{
 			Timeout: time.Duration(config.RequestTimeoutSecond) * time.Second,
