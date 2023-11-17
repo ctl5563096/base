@@ -4,7 +4,6 @@ type HttpRequestRecord struct {
 	TraceId        string `json:"trace_id"`        //请求唯一id
 	Sw8            string `json:"sw8"`             //SkyWalking链路标示 对应header sw8
 	Sw8Correlation string `json:"sw8_correlation"` //SkyWalking链路标示 对应header sw8-correlation
-	XeTag          string `json:"xe_tag"`          //灰度标示
 	Uid            string `json:"uid"`             //用户id
 	HttpStatus     int    `json:"http_status"`     //http状态码
 	TargetUrl      string `json:"target_url"`      //请求地址
