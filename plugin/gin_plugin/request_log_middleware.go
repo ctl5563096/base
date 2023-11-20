@@ -24,13 +24,11 @@ func (w bodyLogWriter) Write(b []byte) (int, error) {
 // maxByte	requestBody大于maxByte，请求日志不打印
 func RequestLogMiddleware(logger contract.RequestLoggerInterface, maxByte float64) func(ginCtx *gin.Context) {
 	return func(ginCtx *gin.Context) {
-		record := contract.XiaoeHttpRequestRecord{}
+		record := contract.HttpRequestRecord{}
 		begin := time.Now()
-		record.AppId = ginCtx.Query("app_id")
 		record.TraceId = ginCtx.GetHeader(contract.TraceId)
 		record.Sw8 = ginCtx.GetHeader(contract.Sw8Header)
 		record.Sw8Correlation = ginCtx.GetHeader(contract.Sw8CorrelationHeader)
-		record.XeTag = ginCtx.GetHeader(contract.XeTagHeader)
 		record.TargetUrl = ginCtx.Request.RequestURI
 		record.Method = ginCtx.Request.Method
 		record.ClientIp = ginCtx.ClientIP()

@@ -14,7 +14,6 @@ func XeSpecificContextSet(ginCtx *gin.Context) {
 	ctx := ginCtx.Request.Context()
 	xeSpecific := make(map[string]string, 4)
 	xeSpecific[contract.TraceId] = ginCtx.GetHeader(contract.TraceId)
-	xeSpecific[contract.XeTagHeader] = ginCtx.GetHeader(contract.XeTagHeader)
 	xeSpecific[contract.Sw8Header] = ginCtx.GetHeader(contract.Sw8Header)
 	xeSpecific[contract.Sw8CorrelationHeader] = ginCtx.GetHeader(contract.Sw8CorrelationHeader)
 	Ctx := context.WithValue(ctx, contract.Ctx, xeSpecific)
